@@ -1,7 +1,10 @@
 pipeline {
-    agent 'sms-pom-2'
+    
+    agent {
+        label 'sms-pom-2'
+    }
+    
     stages {
-
         stage('Build') {
             steps {
                 echo 'This is Build stage...'
@@ -17,6 +20,6 @@ pipeline {
                 echo 'This is Deploy stage...'
             }
         }
-
     }
+    
 }
