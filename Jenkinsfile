@@ -1,6 +1,6 @@
 pipeline {
-    
-    node('sms-pom-2') {
+    agent 'sms-pom-2'
+    stages {
 
         stage('Build') {
             steps {
