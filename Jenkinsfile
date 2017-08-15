@@ -8,12 +8,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build stage 1: Copying the repo'
-                git url "https://github.com/firieshaikh/appcode-repo"
-                echo 'Build Stage 2: Deploying docker'
+                echo 'Build Stage 1: Deploying docker'
                 sh 'docker build -t centos/python-flask .'
+                echo 'Build Stage 2: Running docker'
                 sh 'docker run -d --rm --name python-flask -p 80:80 centos/python-flask'
-                
+         
             }
         }
         stage('Test') {
